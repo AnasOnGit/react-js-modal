@@ -19,10 +19,19 @@ function App() {
         >
           Learn React
         </a>
-        <Modal children={<div>
-          <div>Name</div>
-          <div>Anas</div>
-        </div>}/>
+        <Modal 
+        customButton={true} 
+        customButtonTitle={"true"} 
+        customButtonCallback={()=>{alert("clciked")}}>
+        
+          <form>
+          <input type="text"/>
+          <input type="text" id="fname" name="fname" value="John" />
+          <input type="text" id="lname" name="lname" value="Doe"/>
+          <input type="submit" value="Submit"/>
+        </form>
+       
+        </Modal>
       </header>
     </div>
   );

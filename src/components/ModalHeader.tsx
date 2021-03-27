@@ -9,13 +9,13 @@ interface Props {
     /*
     *Close button  can be null or undefined
     */
-    closeButton?:boolean;
+    headerCloseButton?:boolean;
 }
-export default function ModalHeader({title,closeButton}:Props){
+export default function ModalHeader({title,headerCloseButton}:Props){
    return(
        <div className="modal-header">
            <div className="modal-header-title">{title}</div>
-           <div className="modal-header-close-button">+</div>
+          {headerCloseButton == true ? <div className="modal-header-close-btn">+</div>:null}
        </div>
    )
 }

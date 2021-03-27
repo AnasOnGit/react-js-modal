@@ -1,13 +1,17 @@
 import React from "react";
 
-interface Props {
+export interface FooterProps {
     closeButton:boolean;
+    customButton?:boolean | undefined;
+    customButtonTitle?:string | undefined;
+    customButtonCallback?:React.MouseEventHandler;
 }
 
-export default function ModalFooter({closeButton}:Props){
+export default function ModalFooter({closeButton,customButton,customButtonTitle,customButtonCallback}:FooterProps){
     return(
         <div className="modal-footer">
-            {closeButton == true ?<button className="modal-footer-btn">Close</button>:null}
+            {customButton == true ?<button className="modal-footer-custom-btn" onClick={customButtonCallback}>{customButtonTitle}</button>:null}
+            {closeButton == true ?<button className="modal-footer-close-btn">Close</button>:null}
         </div>
     )
 }
