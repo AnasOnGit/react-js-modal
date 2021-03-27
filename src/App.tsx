@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from "./components/Modal"
 import logo from './logo.svg';
 import './App.css';
 
@@ -18,6 +19,10 @@ function App() {
         >
           Learn React
         </a>
+        <Modal children={<div>
+          <div>Name</div>
+          <div>Anas</div>
+        </div>}/>
       </header>
     </div>
   );
