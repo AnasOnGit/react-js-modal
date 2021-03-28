@@ -29,11 +29,10 @@ export default function Modal({open,setOpen,header,children,title,closeButton,cu
             if(event.key === "Escape"){
                 setOpen(false)
             }
-            // console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
-    })
+        })
     }
     return (
-        <div className="modal-bg">
+        <div className="modal-bg" onDoubleClick={()=>setOpen(false)}>
             <div className="modal-container">
                 {header?<ModalHeader title={title} headerCloseButton={headerCloseButton} closeModal={setOpen}/>:null}
                 <div className="modal-body">{children}</div>
