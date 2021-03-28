@@ -13,6 +13,7 @@ function App() {
         <Modal 
         customButton={true} 
         customButtonTitle={"true"} 
+        // theme="dark"
         title="Form"
         open={toggleModal}
         setOpen={setToggleModal}
