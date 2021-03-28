@@ -7,25 +7,29 @@ import ModalHeader from "./ModalHeader"
 import {FooterProps} from "./ModalFooter"
 
 interface Props {
+    open:boolean;
     header?:boolean;
     headerCloseButton?:boolean;
-    children:JSX.Element | JSX.Element[] | React.ElementType | React.ReactChild | React.ReactNode;
+    customButton?:boolean;
     closeButton:boolean;
-    customButton?:boolean | undefined;
-    customButtonTitle?:string;
     footer?:boolean; 
+    title?:string;
+    customButtonTitle?:string;
+    theme:string;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     customButtonCallback?:React.MouseEventHandler;
-    theme:string,
+    children:JSX.Element | JSX.Element[] | React.ElementType | React.ReactChild | React.ReactNode;
+
 }
 
-export default function Modal({header,children,closeButton,customButton,customButtonTitle,footer,headerCloseButton,customButtonCallback}:Props){
-    // const modalBg = 
+export default function Modal({open,setOpen,header,children,title,closeButton,customButton,customButtonTitle,footer,headerCloseButton,customButtonCallback}:Props){
+    if(!open) return null
     return (
         <div className="modal-bg">
             <div className="modal-container">
-                {header?<ModalHeader title="Title of the modal" headerCloseButton={headerCloseButton}/>:null}
+                {header?<ModalHeader title={title} headerCloseButton={headerCloseButton} closeModal={setOpen}/>:null}
                 <div className="modal-body">{children}</div>
-                {footer?<ModalFooter closeButton={closeButton} customButtonCallback={customButtonCallback} customButton={customButton} customButtonTitle={customButtonTitle}/>:null}
+                {footer?<ModalFooter closeButton={closeButton} closeModal={setOpen} customButtonCallback={customButtonCallback} customButton={customButton} customButtonTitle={customButtonTitle}/>:null}
             </div>
         </div>
     )
@@ -37,4 +41,5 @@ Modal.defaultProps = {
     theme:"default",
     headerCloseButton:true,
     closeButton:true,
+    open:false,
   };

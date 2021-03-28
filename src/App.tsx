@@ -4,32 +4,22 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const [toggleModal,setToggleModal] = React.useState(false)
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <button onClick={()=>setToggleModal(true)}>Open form</button>
         <Modal 
         customButton={true} 
         customButtonTitle={"true"} 
+        title="Form"
+        open={toggleModal}
+        setOpen={setToggleModal}
         customButtonCallback={()=>{alert("clciked")}}>
         
-          <form>
-          <input type="text"/>
-          <input type="text" id="fname" name="fname" value="John" />
-          <input type="text" id="lname" name="lname" value="Doe"/>
-          <input type="submit" value="Submit"/>
-        </form>
+         <h1>Form</h1>
+         <h3>Please wait loading your form</h3>
        
         </Modal>
       </header>
