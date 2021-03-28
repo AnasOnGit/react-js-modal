@@ -9,7 +9,8 @@ Create responsive modal with this simple react-js component.
 # Features to add
 
 - [x] Closing Modal with buttons
-- [ ] Press Esc to close the model
+- [x] Press Esc to close the model
+- [ ] Double click bg to close the model
 - [x] Responsive Modal
 - [ ] Support dark theme
 

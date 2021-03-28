@@ -24,6 +24,14 @@ interface Props {
 
 export default function Modal({open,setOpen,header,children,title,closeButton,customButton,customButtonTitle,footer,headerCloseButton,customButtonCallback}:Props){
     if(!open) return null
+    if(open){
+        document.addEventListener('keydown', function(event){
+            if(event.key === "Escape"){
+                setOpen(false)
+            }
+            // console.log(`Key: ${event.key} with keycode ${event.keyCode} has been pressed`);
+    })
+    }
     return (
         <div className="modal-bg">
             <div className="modal-container">
