@@ -103,3 +103,15 @@
   background-color: transparent;
   color: var( --custom-btn-color);
 }
+
+
+@media (max-width:830px){
+  .modal-container{
+    width: 90%;
+  }
+}
+@media (max-width:450px){
+  .modal-footer{
+    justify-content: center;
+  }
+}
